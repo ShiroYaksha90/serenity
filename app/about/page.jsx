@@ -1,5 +1,11 @@
 import Link from "next/link";
 
+export const metadata = {
+    title: 'About Serenity',
+    description: '…',
+    keywords: '…'
+    }
+
 const AboutPage = () => {
     return (
         <div>
