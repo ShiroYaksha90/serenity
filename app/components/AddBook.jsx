@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-const AddBook = () => {
+const AddBook = ({refreshBooks}) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [newBookTitle, setNewBookTitle] = useState("");
 
@@ -22,6 +22,7 @@ const AddBook = () => {
     if(res.ok){
         setNewBookTitle("");
         setModalOpen(false);
+        refreshBooks();
     }
   };
 
