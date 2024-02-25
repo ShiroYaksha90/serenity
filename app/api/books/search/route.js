@@ -7,15 +7,3 @@ export const GET = async(req) => {
     const filterdBooks = books.filter((book) => book.title.toLowerCase().includes(query.toLowerCase()));
     return NextResponse.json(filterdBooks);
 }
-
-export const POST = async (req) => {
-    const { title, link, img } = await req.json();
-    const newBook = {
-        id: books.length + 1,
-        title,
-        link,
-        img
-    };
-    books.push(newBook);
-    return NextResponse.json('Book added successfully!');
-}
