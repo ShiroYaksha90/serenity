@@ -8,6 +8,7 @@ const Books = () => {
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(true);
   const [query, setQuery] = useState("");
+  
   const fetchBooks = async () => {
     const res = await fetch("/api/books");
     const books = await res.json();
@@ -19,13 +20,6 @@ const Books = () => {
   }, []);
   if (loading) return <LoadingPage />;
 
-  const deleteBook = async (id) => {
-    const res = await fetch(`api/books/${id}`, {
-      method: "DELETE",
-    });
-    fetchBooks();
-  };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     const res = await fetch(
@@ -35,6 +29,14 @@ const Books = () => {
     setBooks(books);
     setLoading(false);
   };
+
+  const deleteBook = async (id) => {
+    const res = await fetch(`api/books/${id}`, {
+      method: "DELETE",
+    });
+    fetchBooks();
+  };
+  
   return (
     <div>
       <form onSubmit={handleSubmit} className="mb-3">
@@ -57,7 +59,6 @@ const Books = () => {
               <img src={book.img} width="200" height="150" />
             </figure>
             <div className="card-body">
-              {/* <h2 className="card-title">{book.id}</h2> */}
               <p>{book.title}</p>
               <div className="card-actions justify-end">
                 <Link
