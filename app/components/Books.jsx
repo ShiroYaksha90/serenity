@@ -49,7 +49,7 @@ const Books = () => {
               <img src={book.img} width="200" height="150" />
             </figure>
             <div className="card-body">
-              <h2 className="card-title">{book.id}</h2>
+              {/* <h2 className="card-title">{book.id}</h2> */}
               <p>{book.title}</p>
               <div className="card-actions justify-end">
                 <Link href={book.link} className="btn btn-primary" target="_blank">
