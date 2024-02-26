@@ -4,7 +4,6 @@ import Link from "next/link";
 import LoadingPage from "../loading";
 import AddBook from "./AddBook";
 
-
 const Books = () => {
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -14,15 +13,24 @@ const Books = () => {
     const books = await res.json();
     setBooks(books);
     setLoading(false);
-  }
+  };
   useEffect(() => {
     fetchBooks();
   }, []);
   if (loading) return <LoadingPage />;
 
+  const deleteBook = async (id) => {
+    const res = await fetch(`api/books/${id}`, {
+      method: "DELETE",
+    });
+    fetchBooks();
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const res = await fetch(`http://localhost:3000/api/books/search?query=${query}`);
+    const res = await fetch(
+      `http://localhost:3000/api/books/search?query=${query}`
+    );
     const books = await res.json();
     setBooks(books);
     setLoading(false);
@@ -52,10 +60,19 @@ const Books = () => {
               {/* <h2 className="card-title">{book.id}</h2> */}
               <p>{book.title}</p>
               <div className="card-actions justify-end">
-                <Link href={book.link} className="btn btn-primary" target="_blank">
+                <Link
+                  href={book.link}
+                  className="btn btn-primary"
+                  target="_blank"
+                >
                   See in Amazon
                 </Link>
-                <button className="btn btn-error">Delete</button>
+                <button
+                  onClick={() => deleteBook(book.id)}
+                  className="btn btn-error"
+                >
+                  Delete
+                </button>
               </div>
             </div>
           </div>
