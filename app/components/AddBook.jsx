@@ -5,6 +5,8 @@ import { useState } from "react";
 const AddBook = ({refreshBooks}) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [newBookTitle, setNewBookTitle] = useState("");
+  const [newBookLink, setNewBookLink] = useState("");
+  const [newBookImg, setNewBookImg] = useState("");
 
   const handleSubmitNewBook = async (e) => {
     e.preventDefault();
@@ -15,8 +17,8 @@ const AddBook = ({refreshBooks}) => {
         },
         body: JSON.stringify({
             title: newBookTitle,
-            link: "https://www.amazon.com/dp/B0979MGJ5J",
-            img: "https://via.placeholder.com/600/92c952"
+            link: newBookLink,
+            img: newBookImg
         })
     })
     if(res.ok){
@@ -52,6 +54,20 @@ const AddBook = ({refreshBooks}) => {
             value={newBookTitle}
             onChange={(e) => setNewBookTitle(e.target.value)}
             placeholder="Enter New Book Title"
+            className="input input-bordered w-full max-w-xs"
+          />
+          <input
+            type="text"
+            value={newBookLink}
+            onChange={(e) => setNewBookLink(e.target.value)}
+            placeholder="Enter New Book Link"
+            className="input input-bordered w-full max-w-xs"
+          />
+          <input
+            type="text"
+            value={newBookImg}
+            onChange={(e) => setNewBookImg(e.target.value)}
+            placeholder="Enter New Book Image URL"
             className="input input-bordered w-full max-w-xs"
           />
           <button className="btn btn-primary" type="submit">
