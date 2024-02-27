@@ -45,9 +45,9 @@ const Books = () => {
           placeholder="Search Books..."
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          className="input input-bordered 2-full max-w-xs"
+          className="input input-bordered 2-full max-w-xs border-amber-900 hover:border-rose-50 hover:bg-blue-200 hover:text-rose-50"
         />
-        <button type="submit" className="btn btn-outline bg-blue-100 mx-1">
+        <button type="submit" className="btn bg-blue-100 border-amber-900 text-amber-950 mx-1 hover:bg-blue-200 hover:text-rose-50">
           Search
         </button>
       </form>
