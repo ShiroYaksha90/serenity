@@ -30,7 +30,7 @@ const AddBook = ({refreshBooks}) => {
 
   return (
     <div>
-      <button className="btn" onClick={() => setModalOpen(true)}>
+      <button className="btn btn-outline btn-primary mb-3" onClick={() => setModalOpen(true)}>
         Add Book
       </button>
       <dialog
