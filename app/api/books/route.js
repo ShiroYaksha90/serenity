@@ -1,19 +1,19 @@
-import books from './data.json';
-import { NextResponse } from 'next/server';
-import { v4 as uuidv4 } from 'uuid';
+import { NextResponse } from "next/server";
+import { prisma } from "../../db";
 
 export const GET = async (req) => {
-    return NextResponse.json(books);
-}
+  const books = await prisma.book.findMany();
+  return NextResponse.json(books);
+};
 
 export const POST = async (req) => {
-    const { title, link, img } = await req.json();
-    const newBook = {
-        id: uuidv4(),
-        title,
-        link,
-        img
-    };
-    books.push(newBook);
-    return NextResponse.json('Book added successfully!');
-}
+  const { title, link, img } = await req.json();
+  await prisma.book.create({
+    data: {
+      title: title,
+      link: link,
+      img: img,
+    },
+  });
+  return NextResponse.json("Book added successfully!");
+};
