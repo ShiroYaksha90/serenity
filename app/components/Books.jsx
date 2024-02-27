@@ -8,7 +8,7 @@ const Books = () => {
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(true);
   const [query, setQuery] = useState("");
-  
+
   const fetchBooks = async () => {
     const res = await fetch("/api/books");
     const books = await res.json();
@@ -39,7 +39,7 @@ const Books = () => {
   
   return (
     <div>
-      <form onSubmit={handleSubmit} className="mb-3">
+      <form onSubmit={handleSubmit} className="my-3">
         <input
           type="text"
           placeholder="Search Books..."
@@ -47,26 +47,26 @@ const Books = () => {
           onChange={(e) => setQuery(e.target.value)}
           className="input input-bordered 2-full max-w-xs"
         />
-        <button type="submit" className="btn btn-primary">
+        <button type="submit" className="btn btn-outline bg-blue-100 mx-1">
           Search
         </button>
       </form>
       <AddBook refreshBooks={fetchBooks} />
       {books.map((book) => (
         <div key={book.id}>
-          <div className="card w-96 bg-base-100 shadow-xl">
-            <figure>
+          <div className="card w-96 bg-violet-100 shadow-2xl">
+            <div className="card-body">
+              <p className="">{book.title}</p>
+              <figure>
               <img src={book.img} width="200" height="150" />
             </figure>
-            <div className="card-body">
-              <p>{book.title}</p>
-              <div className="card-actions justify-end">
+            <div className="card-actions justify-start">
                 <Link
                   href={book.link}
                   className="btn btn-primary"
                   target="_blank"
                 >
-                  See in Amazon
+                  Book details
                 </Link>
                 <button
                   onClick={() => deleteBook(book.id)}
