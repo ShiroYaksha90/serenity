@@ -1,4 +1,4 @@
-import Repos from "@/app/components/Repos";
+import Repos from '../../components/Repos';
 
 const UserReposPage = ({params: {user}}) => {
     return (
