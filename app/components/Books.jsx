@@ -11,6 +11,7 @@ const Books = () => {
 
   const fetchBooks = async () => {
     const res = await fetch("/api/books");
+    await new Promise((resolve) => setTimeout(resolve, 5000));
     const books = await res.json();
     setBooks(books);
     setLoading(false);
