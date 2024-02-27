@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const Header = () => {
   return (
-    <div className="navbar bg-blue-50 text-amber-950">
+    <div className="navbar bg-blue-50 text-amber-950 shadow-md">
       <div className="flex-1">
         <Link href="/" className="btn btn-ghost text-xl">
           Serenity
