@@ -23,7 +23,7 @@ const Books = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const res = await fetch(
-      `http://localhost:3000/api/books/search?query=${query}`
+      `https://serenity-sooty.vercel.app/api/books/search?query=${query}`
     );
     const books = await res.json();
     setBooks(books);
