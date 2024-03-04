@@ -52,13 +52,14 @@ const Books = () => {
         </button>
       </form>
       <AddBook refreshBooks={fetchBooks} />
+      <div className="flex flex-row flex-wrap gap-x-3">
       {books.map((book) => (
         <div key={book.id}>
           <div className="card w-96 bg-violet-100 shadow-2xl">
             <div className="card-body">
-              <p className="">{book.title}</p>
+              <p className="min-h-6">{book.title}</p>
               <figure>
-              <img src={book.img} width="200" height="150" />
+              <img src={book.img} width="200" height="150" className="min-h-60" />
             </figure>
             <div className="card-actions justify-start">
                 <Link
@@ -80,6 +81,7 @@ const Books = () => {
           <br />
         </div>
       ))}
+      </div>
     </div>
   );
 };

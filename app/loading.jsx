@@ -1,6 +1,6 @@
 const LoadingPage = () => {
     return (
-        <div className="loading loading-lg"></div>
+        <div className="loading loading-lg text-amber-950"></div>
     );
     };
 
