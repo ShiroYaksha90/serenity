@@ -59,7 +59,7 @@ const Books = () => {
             <div className="card-body">
               <p className="min-h-6">{book.title}</p>
               <figure>
-              <img src={book.img} width="200" height="150" className="min-h-60" />
+              <img src={book.img} width="200" height="240" className="max-h-60" />
             </figure>
             <div className="card-actions justify-start">
                 <Link
