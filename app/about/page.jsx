@@ -9,8 +9,8 @@ export const metadata = {
 const AboutPage = () => {
     return (
         <div>
-          <h1>About Page</h1>
-          <Link href="/" className="link link-info">Home</Link>
+          <h1 className="font-semibold">Serenity</h1>
+          <p>Is a project that allow users to add desired books to the list and also delete books.</p>
         </div>
     )
 }
